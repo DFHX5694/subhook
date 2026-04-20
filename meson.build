@@ -3,7 +3,7 @@ project('subhook', 'c',
   default_options: ['warning_level=1']
 )
 
-add_project_arguments('-DSUBHOOK_IMPLEMENTATION', language: 'c')
+add_project_arguments('-DSUBHOOK_STATIC', language: 'c')
 
 subhook_headers = files('subhook.h')
 subhook_sources = files('subhook.c', 'subhook_private.h')
