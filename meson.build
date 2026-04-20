@@ -11,11 +11,11 @@ subhook_sources = files('subhook.c', 'subhook_private.h')
 subhook_lib = static_library('subhook',
   subhook_sources,
   install: true,
-  install_dir: 'lib'
+  install_dir: 'lib',
+  pic: false
 )
 
 subhook_dep = declare_dependency(
-  link_with: subhook_lib,
   sources: subhook_sources,
   include_directories: include_directories('.')
 )
