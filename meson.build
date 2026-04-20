@@ -8,7 +8,7 @@ add_project_arguments('-DSUBHOOK_IMPLEMENTATION', language: 'c')
 subhook_headers = files('subhook.h')
 subhook_sources = files('subhook.c', 'subhook_private.h')
 
-subhook_lib = shared_library('subhook',
+subhook_lib = static_library('subhook',
   subhook_sources,
   install: true,
   install_dir: 'lib'
@@ -16,9 +16,8 @@ subhook_lib = shared_library('subhook',
 
 subhook_dep = declare_dependency(
   link_with: subhook_lib,
+  sources: subhook_sources,
   include_directories: include_directories('.')
 )
 
 install_data('subhook.h', install_dir: 'include')
-
-subdir('test')
